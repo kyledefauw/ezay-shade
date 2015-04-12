@@ -1,0 +1,54 @@
+!!! HTML
+%html
+%head
+  %title EzayShade
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+  %nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        = link_to "EzayShade", root_path, class: "navbar-brand"
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li.dropdown
+            =link_to('#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}, role: 'button') do
+              Shades
+              %span.caret
+
+            %ul.dropdown-menu{"role" => "menu"}
+              %li= link_to "Solid", solid_shades_path
+              %li= link_to "Design", design_shades_path
+              %li= link_to "Sports", sports_shades_path
+              %li.divider
+              %li= link_to "Custom", custom_shades_path
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to "Contact Us", contact_us_path
+
+  %br
+  %br
+  %br
+
+  .container
+
+    - if flash[:notice]
+      %p.alert.alert-success
+        = flash[:notice]
+
+    - if flash[:error]
+      %p.alert.alert-danger
+        = flash[:error]
+
+    = yield
+
+    %footer
+      %hr
+        = link_to "Home", root_path
+        |
+        = link_to "Shades", shades_index_path
+        |
+        = link_to "Contact Us", contact_us_path
+        .pull-right
+          Copyright @ EzayShade 2015
