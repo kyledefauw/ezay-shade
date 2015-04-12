@@ -16,9 +16,15 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "jquery.bxslider";
+ @import "sss";
 
 body {
   background-image: url(sunny_background_2000.jpg);
   background-size: cover;
   background-color: #F7AD00;
+}
+
+.well {
+  background-color: #FFFFFF;
 }
